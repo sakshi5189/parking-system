@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/static/style.css">
+<h2>Welcome {{user}}</h2>
+
+<a href="/park">Park Vehicle</a> |
+<a href="/exit">Exit Vehicle</a>
+
+<h3>Parking Slots</h3>
+
+{% for s in slots %}
+<div class="slot {% if s[1]=='Available' %}available{% else %}occupied{% endif %}">
+Slot {{s[0]}}
+</div>
+{% endfor %}
