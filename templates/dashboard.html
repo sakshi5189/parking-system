@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-dark px-3">
+    <span class="navbar-brand">🚗 Smart Parking System</span>
+    <a href="/" class="btn btn-danger">Logout</a>
+</nav>
+
+<div class="container mt-4">
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h5>View Slots</h5>
+                <a href="/slots" class="btn btn-primary">Open</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h5>Park Vehicle</h5>
+                <a href="/park" class="btn btn-success">Park</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow p-3">
+                <h5>Exit Vehicle</h5>
+                <a href="/exit" class="btn btn-danger">Exit</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h4 class="mt-4">Parking Slots</h4>
+
+    <div class="row">
+        {% for s in slots %}
+        <div class="col-md-2 mb-3">
+            <div class="card text-center 
+                {% if s['status'] == 'Available' %}bg-success{% else %}bg-danger{% endif %} 
+                text-white">
+                <div class="card-body">
+                    Slot {{ s['slot_id'] }}<br>
+                    {{ s['status'] }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>
